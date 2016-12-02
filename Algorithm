@@ -1,0 +1,6 @@
+The basic algorithm behind this random password generator is as follows:
+Create lists containing the following uppercase alphabets,lowercase alphabets,numbers and special characters.
+Combine all the lists to form a mega list.
+Ask the user for no. of characters required in the password
+Now initiate a loop so that legth of the password remains less then the value specified
+Use the random module in python to randomly access index of lists and keep on adding them to a empty strings till the desired length is reached (using the while loop)
