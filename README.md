@@ -1,2 +1,2 @@
-# One-time-Password-generator
+# Password Manager
 This generates passwords with no. of characters specified
