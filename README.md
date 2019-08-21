@@ -1,2 +1,2 @@
 # Password Manager
-This generates passwords with no. of characters specified
+A sleek password manager for your desktop built using PyQt
