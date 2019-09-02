@@ -1,5 +1,5 @@
 # otp generator
-import random
+from random import randint as r
 
 # list of integers
 L1 = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
@@ -37,11 +37,15 @@ print '\n'.join(["MENU", "1.Numbers", "2.Lowercase Alphabets",
 ch = raw_input(
     "Enter your choice(s);multiple choices can be added for eg.124:")
 
+# construct your megalist
 for i in ch:
     L.extend(pwd[int(i)])
 
+# upperbound for random variable
+limit = len(L)-1
 
 otp = ""
 while len(otp) < n:
+    i = r(0, limit)
     otp += L[i]
 print "Your one time password is-", otp
