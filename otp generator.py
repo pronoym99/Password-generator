@@ -1,5 +1,6 @@
 # otp generator
 from random import randint as r
+from random import shuffle as s
 
 # list of integers
 L1 = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
@@ -40,6 +41,9 @@ ch = raw_input(
 # construct your megalist
 for i in ch:
     L.extend(pwd[int(i)])
+
+# shuffle your list
+s(L)
 
 # upperbound for random variable
 limit = len(L)-1
