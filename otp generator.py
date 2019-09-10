@@ -53,5 +53,5 @@ limit = len(main_use_list)-1
 otp = ""
 while len(otp) < user_choice_password_length:
     i = randint(0, limit)
-    otp += L[i]
+    otp += main_use_list[i]
 print "Your one time password is-", otp
