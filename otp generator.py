@@ -17,7 +17,9 @@ upper_alpha_list = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 
 special_char_list = ["!", "@", "#", "$", "%", "^", "&", "*"]
 
 password_map = {1: num_list, 2: lower_alpha_list, 3: upper_alpha_list, 4: special_char_list}
+
 main_use_list = []  # megalist
+
 while True:
     try:
         # Asking the user for required length
