@@ -1,30 +1,30 @@
 # otp generator
-from random import randint as r
-from random import shuffle as s
+from random import randint
+from random import shuffle
 
 # list of integers
-L1 = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+num_list = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 # list of lowercase alphabets
-L2 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
+lower_alpha_list = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
       "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
 # list of uppercase alphabets
-L3 = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+upper_alpha_list = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
       'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
 # list of special characters
-L4 = ["!", "@", "#", "$", "%", "^", "&", "*"]
+special_char_list = ["!", "@", "#", "$", "%", "^", "&", "*"]
 
-pwd = {1: L1, 2: L2, 3: L3, 4: L4}
-L = []  # megalist
+password_map = {1: num_list, 2: lower_alpha_list, 3: upper_alpha_list, 4: special_char_list}
+main_use_list = []  # megalist
 while True:
     try:
         # Asking the user for required length
-        n = int(raw_input("How many digit password do you want to generate?:"))
-        if n == 0:
+        user_choice_password_length = int(raw_input("How many digit password do you want to generate?:"))
+        if user_choice_password_length == 0:
             print "No null value passwords allowed"
-        elif n != 0:
+        elif user_choice_password_length != 0:
             break
     except ValueError:
         # Handling the error where an user enters a string value
@@ -35,21 +35,21 @@ while True:
 # handling desired choices
 print '\n'.join(["MENU", "1.Numbers", "2.Lowercase Alphabets",
                  "3.Uppercase Alphabets", "4.Special characters"])
-ch = raw_input(
+user_choices = raw_input(
     "Enter your choice(s);multiple choices can be added for eg.124:")
 
 # construct your megalist
-for i in ch:
-    L.extend(pwd[int(i)])
+for i in user_choices:
+    main_use_list.extend(password_map[int(i)])
 
 # shuffle your list
-s(L)
+shuffle(main_use_list)
 
 # upperbound for random variable
-limit = len(L)-1
+limit = len(main_use_list)-1
 
 otp = ""
-while len(otp) < n:
-    i = r(0, limit)
+while len(otp) < user_choice_password_length:
+    i = randint(0, limit)
     otp += L[i]
 print "Your one time password is-", otp
