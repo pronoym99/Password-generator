@@ -50,14 +50,11 @@ for choice in user_choices:
     current_list = password_map[int(choice)]
     # upperbound for random variable
     limit = len(current_list) - 1
+    # construct your megalist at the same time
+    main_use_list.extend(password_map[int(choice)])
 
     otp_char = randint(0, limit)
     otp += current_list[otp_char]
-
-
-# construct your megalist
-for choice in user_choices:
-    main_use_list.extend(password_map[int(choice)])
 
 # shuffle your list
 shuffle(main_use_list)
@@ -65,9 +62,11 @@ shuffle(main_use_list)
 # upperbound for random variable
 limit = len(main_use_list)-1
 
-target_len_of_otp = user_choice_password_length - len(user_choices)
+# reduced target length
+target_length_of_otp = user_choice_password_length - len(user_choices)
 
-while target_len_of_otp < user_choice_password_length:
+while target_length_of_otp < user_choice_password_length:
     otp_char = randint(0, limit)
     otp += main_use_list[otp_char]
+    target_length_of_otp += 1
 print "Your one time password is-", otp
