@@ -24,14 +24,14 @@ while True:
     try:
         # Asking the user for required length
         user_choice_password_length = int(raw_input("How many digit password do you want to generate?:"))
-        if user_choice_password_length == 0:
-            print "No null value passwords allowed"
-        elif user_choice_password_length != 0:
+        if user_choice_password_length <= 0:
+            print "No negative integers or null value allowed for password length"
+        elif user_choice_password_length > 0:
             break
     except ValueError:
         # Handling the error where an user enters a string value
         # for the length of the otp (purposefully or otherwise)
-        print "please enter a proper integer indicating the number of digits"
+        print "Please enter a proper integer indicating the number of digits"
 
 
 # handling desired choices
@@ -40,9 +40,24 @@ print '\n'.join(["MENU", "1.Numbers", "2.Lowercase Alphabets",
 user_choices = raw_input(
     "Enter your choice(s);multiple choices can be added for eg.124:")
 
+# Ensure that at least one character from every option exists in the final otp
+
+# initialise empty otp string
+otp=""
+
+for choice in user_choices:
+    # enumerate over each of the lists in user_choice
+    current_list = password_map[int(choice)]
+    # upperbound for random variable
+    limit = len(current_list) - 1
+
+    otp_char = randint(0, limit)
+    otp += current_list[otp_char]
+
+
 # construct your megalist
-for i in user_choices:
-    main_use_list.extend(password_map[int(i)])
+for choice in user_choices:
+    main_use_list.extend(password_map[int(choice)])
 
 # shuffle your list
 shuffle(main_use_list)
@@ -50,8 +65,9 @@ shuffle(main_use_list)
 # upperbound for random variable
 limit = len(main_use_list)-1
 
-otp = ""
-while len(otp) < user_choice_password_length:
-    i = randint(0, limit)
-    otp += main_use_list[i]
+target_len_of_otp = user_choice_password_length - len(user_choices)
+
+while target_len_of_otp < user_choice_password_length:
+    otp_char = randint(0, limit)
+    otp += main_use_list[otp_char]
 print "Your one time password is-", otp
