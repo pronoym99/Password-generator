@@ -1,24 +1,11 @@
 # otp generator
-from random import randint
+from random import choice
 from random import shuffle
 
-# list of integers
-num_list = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
-# list of lowercase alphabets
-lower_alpha_list = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
-      "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+password_map = {1: '0123456789', 2: 'abcdefghijklmnopqrstuvwxyz', 3: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 4: '!@#$%^&*()-_=+<>?/|\{}[]~'}
 
-# list of uppercase alphabets
-upper_alpha_list = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-      'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-
-# list of special characters
-special_char_list = ["!", "@", "#", "$", "%", "^", "&", "*"]
-
-password_map = {1: num_list, 2: lower_alpha_list, 3: upper_alpha_list, 4: special_char_list}
-
-main_use_list = []  # megalist
+main_use_string = ""  # megastring
 
 while True:
     try:
@@ -46,27 +33,24 @@ user_choices = raw_input(
 otp=""
 
 for choice in user_choices:
-    # enumerate over each of the lists in user_choice
-    current_list = password_map[int(choice)]
-    # upperbound for random variable
-    limit = len(current_list) - 1
-    # construct your megalist at the same time
-    main_use_list.extend(password_map[int(choice)])
+    # enumerate over each of the strings in user_choice
+    current_string = password_map[int(choice)]
+    # construct your megastring at the same time
+    main_use_string += password_map[int(choice)])
+    # add atleast one character from each of the strings in user_choice
+    otp += choice(current_string)
 
-    otp_char = randint(0, limit)
-    otp += current_list[otp_char]
-
-# shuffle your list
-shuffle(main_use_list)
-
-# upperbound for random variable
-limit = len(main_use_list)-1
 
 # reduced target length
 target_length_of_otp = user_choice_password_length - len(user_choices)
 
 while target_length_of_otp < user_choice_password_length:
-    otp_char = randint(0, limit)
-    otp += main_use_list[otp_char]
+    otp += choice(main_use_string)
     target_length_of_otp += 1
+
+# shuffle your otp once
+# remember to convert to list type and back to string type
+otp = ''.join(shuffle(list(otp)))
+
+# display the final otp
 print "Your one time password is-", otp
