@@ -3,14 +3,16 @@ from random import choice
 from random import shuffle
 
 
-password_map = {1: '0123456789', 2: 'abcdefghijklmnopqrstuvwxyz', 3: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 4: '!@#$%^&*()-_=+<>?/|\{}[]~'}
+password_map = {1: '0123456789', 2: 'abcdefghijklmnopqrstuvwxyz',
+                3: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 4: '!@#$%^&*()-_=+<>?/|\{}[]~'}
 
 main_use_string = ''  # megastring
 
 while True:
     try:
         # Asking the user for required length
-        user_choice_password_length = int(raw_input("How many digit password do you want to generate?:"))
+        user_choice_password_length = int(
+            raw_input("How many digit password do you want to generate?:"))
         if user_choice_password_length <= 0:
             print "No negative integers or null value allowed for password length"
         elif user_choice_password_length > 0:
@@ -30,7 +32,7 @@ user_choices = raw_input(
 # Ensure that at least one character from every option exists in the final otp
 
 # initialise empty otp string
-otp=''
+otp = ''
 
 for choice_string in user_choices:
     # enumerate over each of the strings in user_choice
