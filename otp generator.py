@@ -32,11 +32,11 @@ user_choices = raw_input(
 # initialise empty otp string
 otp=""
 
-for choice in user_choices:
+for choice_string in user_choices:
     # enumerate over each of the strings in user_choice
-    current_string = password_map[int(choice)]
+    current_string = password_map[int(choice_string)]
     # construct your megastring at the same time
-    main_use_string += password_map[int(choice)])
+    main_use_string += current_string
     # add atleast one character from each of the strings in user_choice
     otp += choice(current_string)
 
