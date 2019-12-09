@@ -5,7 +5,7 @@ from random import shuffle
 
 password_map = {1: '0123456789', 2: 'abcdefghijklmnopqrstuvwxyz', 3: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 4: '!@#$%^&*()-_=+<>?/|\{}[]~'}
 
-main_use_string = ""  # megastring
+main_use_string = ''  # megastring
 
 while True:
     try:
@@ -30,7 +30,7 @@ user_choices = raw_input(
 # Ensure that at least one character from every option exists in the final otp
 
 # initialise empty otp string
-otp=""
+otp=''
 
 for choice_string in user_choices:
     # enumerate over each of the strings in user_choice
@@ -44,13 +44,12 @@ for choice_string in user_choices:
 # reduced target length
 target_length_of_otp = user_choice_password_length - len(user_choices)
 
-while target_length_of_otp < user_choice_password_length:
+for _ in xrange(target_length_of_otp):
     otp += choice(main_use_string)
-    target_length_of_otp += 1
 
 # shuffle your otp once
-# remember to convert to list type and back to string type
-otp = ''.join(shuffle(list(otp)))
 
-# display the final otp
-print "Your one time password is-", otp
+# remember to convert to list type before shuffling and back to str type after shuffling
+otp_list = list(otp)
+shuffle(otp_list)
+otp = ''.join(otp_list)
