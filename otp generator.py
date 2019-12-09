@@ -55,3 +55,6 @@ for _ in xrange(target_length_of_otp):
 otp_list = list(otp)
 shuffle(otp_list)
 otp = ''.join(otp_list)
+
+#display the final otp
+print "Your one time password is-", otp
