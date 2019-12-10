@@ -1,6 +1,11 @@
 # otp generator
 from random import choice
 from random import shuffle
+from pyfiglet import figlet_format
+
+# Display the title of your application
+print figlet_format("Password", font = "big")
+print figlet_format("generator", font = "big")
 
 
 password_map = {1: '0123456789', 2: 'abcdefghijklmnopqrstuvwxyz',
