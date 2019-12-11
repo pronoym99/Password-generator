@@ -1,5 +1,8 @@
 # otp generator
 
+# clean Python 3.x-compatible codebase to support both Python 2 and Python 3 with minimal overhead.
+from __future__ import print_function, unicode_literals
+
 # your CLI app essential
 import click
 
@@ -8,8 +11,6 @@ from random import choice
 from random import shuffle
 # decorative ascii text
 from pyfiglet import figlet_format
-# clean Python 3.x-compatible codebase to support both Python 2 and Python 3 with minimal overhead.
-from __future__ import print_function, unicode_literals
 # your CLI app essentials
 from PyInquirer import (Token, ValidationError, Validator, print_json, prompt,
                         style_from_dict)
@@ -52,13 +53,27 @@ def displayInfo(info, color, font="slant", figlet=False):
         six.print_(info)
 
 class PasswordLengthValidator(Validator):
-    def validate(self, document):
+    def validate(self, answer):
         try:
-            int(document.text)
+            user_choice_password_length = int(answer.text)
+
+            if user_choice_password_length <= 0:
+                raise ValidationError(
+                    message='Please enter a positive integer',
+                    cursor_position=len(answer.text))  # Move cursor to end
+
         except ValueError:
             raise ValidationError(
                 message='Please enter a positive integer',
-                cursor_position=len(document.text))  # Move cursor to end
+                cursor_position=len(answer.text))  # Move cursor to end
+
+class PasswordOptionsValidator(Validator):
+    def validate(self, answer):
+        try:
+            if len(answer) == 0:
+                raise ValidationError(
+                    message='You must choose at least one option',
+                    cursor_position=len(answer.text))  # Move cursor to end
 
 
 def askPasswordInformation():
@@ -91,8 +106,7 @@ def askPasswordInformation():
 
                 }
             ]
-            'validate': lambda answer: 'You must choose at least one option' \
-                if len(answer) == 0 else True
+            'validate': PasswordOptionsValidator
         }
     ]
 
