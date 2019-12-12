@@ -29,7 +29,7 @@ except ImportError:
 style = style_from_dict({
     Token.Separator: '#6C6C6C',
     Token.QuestionMark: '#FF9D00 bold',
-    #Token.Selected: '',  # default
+    # Token.Selected: '',  # default
     Token.Selected: '#5F819D',
     Token.Pointer: '#FF9D00 bold',
     Token.Instruction: '',  # default
@@ -48,6 +48,7 @@ def displayInfo(info, color, font="slant", figlet=False):
                 info, font=font), color))
     else:
         six.print_(info)
+
 
 class PasswordLengthValidator(Validator):
     def validate(self, answer):
@@ -110,6 +111,7 @@ def askPasswordInformation():
     answers = prompt(questions, style=style)
     return answers
 
+
 @click.command()
 def main():
     """
@@ -117,6 +119,7 @@ def main():
     """
     displayInfo("Password Generator", color="blue", figlet=True)
     displayInfo("Welcome to Password generator CLI", "green")
+
 
 if __name__ == '__main__':
     main()
