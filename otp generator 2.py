@@ -1,8 +1,5 @@
 # otp generator
 
-# clean Python 3.x-compatible codebase to support both Python 2 and Python 3 with minimal overhead.
-from __future__ import print_function, unicode_literals
-
 # your CLI app essential
 import click
 
