@@ -67,13 +67,13 @@ class PasswordLengthValidator(Validator):
                 message='Please enter a positive integer',
                 cursor_position=len(answer.text))  # Move cursor to end
 
-class PasswordOptionsValidator(Validator):
-    def validate(self, answer):
-        try:
-            if len(answer) == 0:
-                raise ValidationError(
-                    message='You must choose at least one option',
-                    cursor_position=len(answer.text))  # Move cursor to end
+# class PasswordOptionsValidator(Validator):
+#     def validate(self, answer):
+#         try:
+#             if len(answer) == 0:
+#                 raise ValidationError(
+#                     message='You must choose at least one option',
+#                     cursor_position=len(answer.text))  # Move cursor to end
 
 
 def askPasswordInformation():
@@ -106,7 +106,7 @@ def askPasswordInformation():
 
                 }
             ]
-            'validate': PasswordOptionsValidator
+            # 'validate': PasswordOptionsValidator
         }
     ]
 
