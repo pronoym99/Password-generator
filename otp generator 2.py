@@ -120,6 +120,12 @@ def main():
     displayInfo("Password Generator", color="blue", figlet=True)
     displayInfo("Welcome to Password generator CLI", "green")
 
+    # a dictionary to store all ascii characters as strings
+    password_map = {1: '0123456789', 2: 'abcdefghijklmnopqrstuvwxyz',
+                    3: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 4: '!@#$%^&*()-_=+<>?/|\{}[]~'}
+
+    main_use_string = ''  # megastring
+
 
 if __name__ == '__main__':
     main()
