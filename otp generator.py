@@ -4,8 +4,8 @@ from random import shuffle
 from pyfiglet import figlet_format
 
 # Display the title of your application
-print figlet_format("Password", font = "big")
-print figlet_format("generator", font = "big")
+print(figlet_format("Password", font = "big"))
+print(figlet_format("generator", font = "big"))
 
 
 password_map = {1: '0123456789', 2: 'abcdefghijklmnopqrstuvwxyz',
@@ -19,18 +19,18 @@ while True:
         user_choice_password_length = int(
             raw_input("How many digit password do you want to generate?:"))
         if user_choice_password_length <= 0:
-            print "No negative integers or null value allowed for password length"
+            print("No negative integers or null value allowed for password length")
         elif user_choice_password_length > 0:
             break
     except ValueError:
         # Handling the error where an user enters a string value
         # for the length of the otp (purposefully or otherwise)
-        print "Please enter a proper integer indicating the number of digits"
+        print("Please enter a proper integer indicating the number of digits")
 
 
 # handling desired choices
-print '\n'.join(["MENU", "1.Numbers", "2.Lowercase Alphabets",
-                 "3.Uppercase Alphabets", "4.Special characters"])
+print('\n'.join(["MENU", "1.Numbers", "2.Lowercase Alphabets",
+                 "3.Uppercase Alphabets", "4.Special characters"]))
 user_choices = raw_input(
     "Enter your choice(s);multiple choices can be added for eg.124:")
 
@@ -62,4 +62,4 @@ shuffle(otp_list)
 otp = ''.join(otp_list)
 
 #display the final otp
-print "Your one time password is-", otp
+print("Your one time password is-", otp) 
