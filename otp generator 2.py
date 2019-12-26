@@ -3,6 +3,8 @@
 # your CLI app essential
 import click
 
+import six
+
 # functions from random for password generation
 from random import choice
 from random import shuffle
