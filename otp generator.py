@@ -17,7 +17,7 @@ while True:
     try:
         # Asking the user for required length
         user_choice_password_length = int(
-            raw_input("How many digit password do you want to generate?:"))
+            input("How many digit password do you want to generate?:"))
         if user_choice_password_length <= 0:
             print("No negative integers or null value allowed for password length")
         elif user_choice_password_length > 0:
@@ -31,7 +31,7 @@ while True:
 # handling desired choices
 print('\n'.join(["MENU", "1.Numbers", "2.Lowercase Alphabets",
                  "3.Uppercase Alphabets", "4.Special characters"]))
-user_choices = raw_input(
+user_choices = input(
     "Enter your choice(s);multiple choices can be added for eg.124:")
 
 # Ensure that at least one character from every option exists in the final otp
@@ -62,4 +62,4 @@ shuffle(otp_list)
 otp = ''.join(otp_list)
 
 #display the final otp
-print("Your one time password is-", otp) 
+print("Your one time password is-", otp)
