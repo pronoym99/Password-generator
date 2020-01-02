@@ -91,7 +91,7 @@ def askPasswordInformation():
             'message': 'Select options ',
             'name': 'password options',
             'choices': [
-                Separator('=== Menu ==='),
+                #Separator('=== Menu ==='),
                 {
                     'name': 'Numbers'
                 },
