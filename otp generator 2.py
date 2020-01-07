@@ -3,7 +3,7 @@
 # your CLI app essential
 import click
 
-import six
+from six import print_
 
 # functions from random for password generation
 from random import choice
@@ -44,9 +44,9 @@ style = style_from_dict({
 def displayInfo(info, color, font="slant", figlet=False):
     if colored:
         if not figlet:
-            six.print_(colored(info, color))
+            print_(colored(info, color))
         else:
-            six.print_(colored(figlet_format(
+            print_(colored(figlet_format(
                 info, font=font), color))
     else:
         six.print_(info)
