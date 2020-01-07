@@ -1,11 +1,6 @@
 # otp generator
 from random import choice
 from random import shuffle
-from pyfiglet import figlet_format
-
-# Display the title of your application
-print(figlet_format("Password", font = "big"))
-print(figlet_format("generator", font = "big"))
 
 
 password_map = {1: '0123456789', 2: 'abcdefghijklmnopqrstuvwxyz',
@@ -51,7 +46,7 @@ for choice_string in user_choices:
 # reduced target length
 target_length_of_otp = user_choice_password_length - len(user_choices)
 
-for _ in xrange(target_length_of_otp):
+for _ in range(target_length_of_otp):
     otp += choice(main_use_string)
 
 # shuffle your otp once
