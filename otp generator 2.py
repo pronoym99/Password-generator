@@ -87,7 +87,7 @@ def askPasswordInformation():
         },
         {
             'type': 'checkbox',
-            'qmark': '😃',
+            'qmark': '\U0001F600',
             'message': 'Select options ',
             'name': 'password options',
             'choices': [
