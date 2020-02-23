@@ -6,8 +6,7 @@ import click
 from six import print_
 
 # functions from random for password generation
-from random import choice
-from random import shuffle
+from random import (choice,shuffle)
 # decorative ascii text
 from pyfiglet import figlet_format
 # your CLI app essentials
@@ -31,7 +30,7 @@ except ImportError:
 style = style_from_dict({
     Token.Separator: '#6C6C6C',
     Token.QuestionMark: '#FF9D00 bold',
-    # Token.Selected: '',  # default
+    Token.Selected: '',  # default
     Token.Selected: '#5F819D',
     Token.Pointer: '#FF9D00 bold',
     Token.Instruction: '',  # default
@@ -91,7 +90,7 @@ def askPasswordInformation():
             'message': 'Select options ',
             'name': 'password options',
             'choices': [
-                #Separator('=== Menu ==='),
+                Separator('=== Menu ==='),
                 {
                     'name': 'Numbers'
                 },
