@@ -10,8 +10,10 @@ from random import (choice,shuffle)
 # decorative ascii text
 from pyfiglet import figlet_format
 # your CLI app essentials
-from PyInquirer import (Token, ValidationError, Validator, print_json, prompt,
-                        style_from_dict)
+from PyInquirer import (Token, ValidationError, Validator, prompt,
+                        style_from_dict, Separator)
+
+from pprint import pprint
 
 # your colouring essentials
 try:
@@ -48,7 +50,7 @@ def displayInfo(info, color, font="slant", figlet=False):
             print_(colored(figlet_format(
                 info, font=font), color))
     else:
-        six.print_(info)
+        print_(info)
 
 
 class PasswordLengthValidator(Validator):
@@ -110,7 +112,46 @@ def askPasswordInformation():
     ]
 
     answers = prompt(questions, style=style)
-    return answers
+    pprint(answers)
+
+
+
+# questions = [
+#         {
+#             'type': 'input',
+#             'name': 'password length',
+#             'message': 'How many digit password do you want to generate?:',
+#             'validate': PasswordLengthValidator
+#         },
+#         {
+#             'type': 'checkbox',
+#             'qmark': '\U0001F600',
+#             'message': 'Select options ',
+#             'name': 'password options',
+#             'choices': [
+#                 Separator('=== Menu ==='),
+#                 {
+#                     'name': 'Numbers'
+#                 },
+#                 {
+#                     'name': 'Lowercase Alphabets'
+#                 },
+#                 {
+#                     'name': 'Uppercase Alphabets'
+#                 },
+#                 {
+#                     'name': 'Special characters'
+#
+#                 }
+#             ]
+#             # 'validate': PasswordOptionsValidator
+#         }
+#     ]
+#
+# answers = prompt(questions, style=style)
+# pprint(answers)
+
+
 
 
 @click.command()
@@ -118,7 +159,7 @@ def main():
     """
     Simple CLI for generating passwords
     """
-    displayInfo("Password Generator", color="blue", figlet=True)
+    displayInfo("Password Generator", color="yellow", figlet=True)
     displayInfo("Welcome to Password generator CLI", "green")
 
     # a dictionary to store all ascii characters as strings
@@ -126,6 +167,8 @@ def main():
                     3: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 4: '!@#$%^&*()-_=+<>?/|\{}[]~'}
 
     main_use_string = ''  # megastring
+
+    askPasswordInformation()
 
 
 if __name__ == '__main__':
