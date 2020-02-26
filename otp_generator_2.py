@@ -13,8 +13,6 @@ from pyfiglet import figlet_format
 from PyInquirer import (Token, ValidationError, Validator, prompt,
                         style_from_dict, Separator)
 
-from pprint import pprint
-
 # your colouring essentials
 try:
     import colorama
@@ -125,16 +123,17 @@ def main():
 
     # a dictionary to store all ascii characters as strings
     password_map = {'Numbers': '0123456789', 'Lowercase Alphabets': 'abcdefghijklmnopqrstuvwxyz',
-                    'Uppercase Alphabets': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'Special characters': '!@#$%^&*()-_=+<>?/|\{}[]~'}
+                'Uppercase Alphabets': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'Special characters': '!@#$%^&*()-_=+<>?/|\{}[]~'}
+
 
     main_use_string = ''  # megastring
 
     # retrieve data from PyInquirer prompt
-    answers = askPasswordInformation()
-    # first element of 'answers' is the password length
-    user_choice_password_length = int(answers['password length'])
-    # while second element of 'answers' is a list of user choices
-    user_choices = answers['password options']
+    password_info = askPasswordInformation()
+    # first element of 'password_info' is the password length
+    user_choice_password_length = int(password_info['password length'])
+    # while second element of 'password_info' is a list of user choices
+    user_choices = password_info['password options']
 
     # initialise empty otp string
     otp = ''
