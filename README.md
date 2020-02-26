@@ -1,2 +1,2 @@
-# Password Manager
-Your sleek CLI Password manager built using PyInquirer
+# Password Generator
+Your sleek CLI Password generator built using PyInquirer
