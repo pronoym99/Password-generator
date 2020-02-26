@@ -66,14 +66,6 @@ class PasswordLengthValidator(Validator):
                 message='Please enter a positive integer',
                 cursor_position=len(answer.text))  # Move cursor to end
 
-# class PasswordOptionsValidator(Validator):
-#     def validate(self, answer):
-#         try:
-#             if len(answer) == 0:
-#                 raise ValidationError(
-#                     message='You must choose at least one option',
-#                     cursor_position=len(answer.text))  # Move cursor to end
-
 
 def askPasswordInformation():
 
@@ -123,8 +115,7 @@ def main():
 
     # a dictionary to store all ascii characters as strings
     password_map = {'Numbers': '0123456789', 'Lowercase Alphabets': 'abcdefghijklmnopqrstuvwxyz',
-                'Uppercase Alphabets': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'Special characters': '!@#$%^&*()-_=+<>?/|\{}[]~'}
-
+                    'Uppercase Alphabets': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'Special characters': '!@#$%^&*()-_=+<>?/|\{}[]~'}
 
     main_use_string = ''  # megastring
 
