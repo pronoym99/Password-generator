@@ -105,7 +105,7 @@ def askPasswordInformation():
 
                 }
             ]
-            # 'validate': PasswordOptionsValidator
+            # checkbox doesn't have a Validator implementation yet
         }
     ]
 
