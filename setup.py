@@ -1,6 +1,6 @@
 from setuptools import setup
 setup(
-    name = 'helloworld-cli',
+    name = 'Password-generator-cli',
     version = '0.1.0',
     packages = ['helloworld'],
     entry_points = {
