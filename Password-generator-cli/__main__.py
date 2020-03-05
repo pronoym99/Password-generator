@@ -5,6 +5,9 @@ import click
 
 from six import print_
 
+# for copying to clipboard
+from pyperclip import copy
+
 # functions from random for password generation
 from random import (choice, shuffle)
 # decorative ascii text
@@ -104,6 +107,18 @@ def askPasswordInformation():
     answers = prompt(questions, style=style)
     return answers
 
+def askCopyInformation():
+    questions = [
+        {
+            'type': 'confirm',
+            'name': 'copy',
+            'message': 'Do you want to copy password to clipboard?:',
+            'default': False
+        }
+    ]
+
+    answers = prompt(questions, style=style)
+    return answers
 
 @click.command()
 def main():
@@ -152,6 +167,10 @@ def main():
     # display the final otp
     print('Your one time password is-')
     displayInfo(otp, "red")
+
+    if askCopyInformation()['copy'] == True:
+        copy(otp)
+        print("Password copied to clipboard")
 
 
 if __name__ == '__main__':
