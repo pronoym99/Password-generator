@@ -1,7 +1,7 @@
 # Password Generator
 Your sleek CLI Password generator built using [PyInquirer](https://github.com/CITGuru/PyInquirer)
 
-![Password generator welcome text](https://github.com/pronoym99/Password-generator/blob/master/header%20symbol.PNG)
+![Password generator welcome text](https://github.com/pronoym99/Password-generator/blob/master/Webp.net-resizeimage.png)
 
 ## Table of contents ##
 1. [Installation](https://github.com/pronoym99/Password-generator#installation)
