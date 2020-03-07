@@ -21,4 +21,7 @@ till a proper pip distribution is available (For more information see To do)
 
 ### To do ###
 
+- [ ] Creating a proper pip distribution
+- [ ] Add more desirable features
+
 ### License ###
