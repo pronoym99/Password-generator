@@ -27,7 +27,7 @@ The usage is pretty self-explanatory. It is divided into the following sections
 
     ![Option selection demo](https://github.com/pronoym99/Password-generator/blob/master/Option%20selection.gif)
 
-    The number of characters in the password is to be entered at the top. Choose anyone or more than one of the options that follow. Use <up> and <down> to move. <space> to select and deselect. <a>  to toggle and <i> to invert all selections respectively.    
+    The number of characters in the password is to be entered at the top. Choose anyone or more than one of the options that follow. Use \<up\> and \<down\> to move. <space> to select and deselect. \<a\>  to toggle and \<i\> to invert all selections respectively.    
 
 -   **Password generation**
 -   **Copying password**
