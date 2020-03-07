@@ -31,12 +31,12 @@ The usage is pretty self-explanatory. It is divided into the following sections
 --------------
 -   **Password generation** - After going through the above steps press the famous _**Enter**_ button to generate your password as shown below.
 
-![Password generation demo]()
+![Password generation demo](https://github.com/pronoym99/Password-generator/blob/master/Password%20generation.gif)
 
 --------------
 -   **Copying password** - After generating the password, the CLI tool gives you the option to __Copy__ the generated password to your clipboard. Press y/n on your keyboard to confirm your selection.
 
-![Copy demo]()
+![Copy demo](https://github.com/pronoym99/Password-generator/blob/master/Copying%20password.gif)
 
 ### To do
 
