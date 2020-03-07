@@ -23,7 +23,7 @@ till a proper pip distribution is available (For more information see To do)
 The usage is pretty self-explanatory. It is divided into the following sections
 * Option selection
 All the major type of characters can be included in your password such as **Numbers**, **Uppercase letters**, **Lowercase letters** and **Special characters**
-![Option selection demo]()
+![Option selection demo](https://github.com/pronoym99/Password-generator/blob/master/Option%20selection.gif)
 * Password generation
 * Copying password
 
