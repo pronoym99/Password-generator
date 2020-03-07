@@ -16,3 +16,9 @@ Like any other repo you can clone this repo onto your local machine using the fo
 git clone https://github.com/pronoym99/Password-generator.git
 ```
 till a proper pip distribution is available (For more information see To do)
+
+### Usage ###
+
+### To do ###
+
+### License ###
