@@ -9,10 +9,10 @@ Your sleek CLI Password generator built using [PyInquirer](https://github.com/CI
 
 
 
-Installation
-~~~~~~~~~~~~
+### Installation ###
+
 Like any other repo you can clone this repo onto your local machine using the following command
-```markdown
+```
 git clone https://github.com/pronoym99/Password-generator.git
 ```
 till a proper pip distribution is available (For more information see To do)
