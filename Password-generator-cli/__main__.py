@@ -18,15 +18,15 @@ from PyInquirer import (Token, ValidationError, Validator, prompt,
 
 # your colouring essentials
 try:
-    import colorama
-    colorama.init()
+  import colorama
+  colorama.init()
 except ImportError:
-    colorama = None
+  colorama = None
 
 try:
-    from termcolor import colored
+  from termcolor import colored
 except ImportError:
-    colored = None
+  colored = None
 
 
 # a custom style for this CLI
@@ -44,134 +44,136 @@ style = style_from_dict({
 
 # an utility function for displaying information in colour
 def displayInfo(info, color, font="slant", figlet=False):
-    if colored:
-        if not figlet:
-            print_(colored(info, color))
-        else:
-            print_(colored(figlet_format(
-                info, font=font), color))
+  if colored:
+    if not figlet:
+      print_(colored(info, color))
     else:
-        print_(info)
+      print_(colored(figlet_format(
+          info, font=font), color))
+  else:
+    print_(info)
 
 
 class PasswordLengthValidator(Validator):
-    def validate(self, answer):
-        try:
-            user_choice_password_length = int(answer.text)
+  def validate(self, answer):
+    try:
+      user_choice_password_length = int(answer.text)
 
-            if user_choice_password_length <= 0:
-                raise ValidationError(
-                    message='Please enter a positive integer',
-                    cursor_position=len(answer.text))  # Move cursor to end
+      if user_choice_password_length <= 0:
+        raise ValidationError(
+            message='Please enter a positive integer',
+            cursor_position=len(answer.text))  # Move cursor to end
 
-        except ValueError:
-            raise ValidationError(
-                message='Please enter a positive integer',
-                cursor_position=len(answer.text))  # Move cursor to end
+    except ValueError:
+      raise ValidationError(
+          message='Please enter a positive integer',
+          cursor_position=len(answer.text))  # Move cursor to end
 
 
 def askPasswordInformation():
 
-    questions = [
-        {
-            'type': 'input',
-            'name': 'password length',
-            'message': 'How many digit password do you want to generate?:',
-            'validate': PasswordLengthValidator
-        },
-        {
-            'type': 'checkbox',
-            'qmark': '\U0001F600',
-            'message': 'Select options ',
-            'name': 'password options',
-            'choices': [
-                Separator('=== Menu ==='),
-                {
-                    'name': 'Numbers'
-                },
-                {
-                    'name': 'Lowercase Alphabets'
-                },
-                {
-                    'name': 'Uppercase Alphabets'
-                },
-                {
-                    'name': 'Special characters'
+  questions = [
+      {
+          'type': 'input',
+          'name': 'password length',
+          'message': 'How many digit password do you want to generate?:',
+          'validate': PasswordLengthValidator
+      },
+      {
+          'type': 'checkbox',
+          'qmark': '\U0001F600',
+          'message': 'Select options ',
+          'name': 'password options',
+          'choices': [
+              Separator('=== Menu ==='),
+              {
+                  'name': 'Numbers'
+              },
+              {
+                  'name': 'Lowercase Alphabets'
+              },
+              {
+                  'name': 'Uppercase Alphabets'
+              },
+              {
+                  'name': 'Special characters'
 
-                }
-            ]
-            # checkbox doesn't have a Validator implementation yet
-        }
-    ]
+              }
+          ]
+          # checkbox doesn't have a Validator implementation yet
+      }
+  ]
 
-    answers = prompt(questions, style=style)
-    return answers
+  answers = prompt(questions, style=style)
+  return answers
+
 
 def askCopyInformation():
-    questions = [
-        {
-            'type': 'confirm',
-            'name': 'copy',
-            'message': 'Do you want to copy password to clipboard?:',
-            'default': False
-        }
-    ]
+  questions = [
+      {
+          'type': 'confirm',
+          'name': 'copy',
+          'message': 'Do you want to copy password to clipboard?:',
+          'default': False
+      }
+  ]
 
-    answers = prompt(questions, style=style)
-    return answers
+  answers = prompt(questions, style=style)
+  return answers
+
 
 @click.command()
 def main():
-    """
-    Simple CLI for generating passwords
-    """
-    displayInfo("Password Generator", color="yellow", figlet=True)
-    displayInfo("Welcome to Password generator CLI", "green")
+  """
+  Simple CLI for generating passwords
+  """
+  displayInfo("Password Generator", color="yellow", figlet=True)
+  displayInfo("Welcome to Password generator CLI", "green")
 
-    # a dictionary to store all ascii characters as strings
-    password_map = {'Numbers': '0123456789', 'Lowercase Alphabets': 'abcdefghijklmnopqrstuvwxyz',
-                    'Uppercase Alphabets': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'Special characters': '!@#$%^&*()-_=+<>?/|\{}[]~'}
+  # a dictionary to store all ascii characters as strings
+  password_map = {'Numbers': '0123456789', 'Lowercase Alphabets': 'abcdefghijklmnopqrstuvwxyz',
+                  'Uppercase Alphabets': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'Special characters': '!@#$%^&*()-_=+<>?/|\{}[]~'}
 
-    main_use_string = ''  # megastring
+  main_use_string = ''  # megastring
 
-    # retrieve data from PyInquirer prompt
-    password_info = askPasswordInformation()
-    # first element of 'password_info' is the password length
-    user_choice_password_length = int(password_info['password length'])
-    # while second element of 'password_info' is a list of user choices
-    user_choices = password_info['password options']
+  # retrieve data from PyInquirer prompt
+  password_info = askPasswordInformation()
+  # first element of 'password_info' is the password length
+  user_choice_password_length = int(password_info['password length'])
+  # while second element of 'password_info' is a list of user choices
+  user_choices = password_info['password options']
 
-    # initialise empty otp string
-    otp = ''
+  # initialise empty otp string
+  otp = ''
 
-    for choice_string in user_choices:
-        # enumerate over each of the strings in user_choice
-        current_string = password_map[choice_string]
-        # construct your megastring at the same time
-        main_use_string += current_string
-        # add atleast one character from each of the strings in user_choice
-        otp += choice(current_string)
+  for choice_string in user_choices:
+    # enumerate over each of the strings in user_choice
+    current_string = password_map[choice_string]
+    # construct your megastring at the same time
+    main_use_string += current_string
+    # add atleast one character from each of the strings in user_choice
+    otp += choice(current_string)
 
-    # reduced target length
-    target_length_of_otp = user_choice_password_length - len(user_choices)
+  # reduced target length
+  target_length_of_otp = user_choice_password_length - len(user_choices)
 
-    for _ in range(target_length_of_otp):
-        otp += choice(main_use_string)
+  for _ in range(target_length_of_otp):
+    otp += choice(main_use_string)
 
-    # shuffle your otp once
-    # remember to convert to list type before shuffling and back to str type after shuffling
-    otp_list = list(otp)
-    shuffle(otp_list)
-    otp = ''.join(otp_list)
+  # shuffle your otp once
+  # remember to convert to list type before shuffling and back to str type after shuffling
+  otp_list = list(otp)
+  shuffle(otp_list)
+  otp = ''.join(otp_list)
 
-    # display the final otp
-    print('Your one time password is-')
-    displayInfo(otp, "red")
+  # display the final otp
+  print('Your one time password is-')
+  displayInfo(otp, "red")
 
-    if askCopyInformation()['copy'] == True:
-        copy(otp)
-        print("Password copied to clipboard")
+  if askCopyInformation()['copy'] == True:
+    copy(otp)
+    print("Password copied to clipboard")
 
 
 if __name__ == '__main__':
-    main()
+  main()
