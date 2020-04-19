@@ -9,7 +9,7 @@ from six import print_
 from pyperclip import copy
 
 # functions from random for password generation
-from random import (choice, shuffle)
+from random import (choice, choices, shuffle)
 # decorative ascii text
 from pyfiglet import figlet_format
 # your CLI app essentials
@@ -157,12 +157,11 @@ def main():
   # reduced target length
   target_length_of_otp = user_choice_password_length - len(user_choices)
 
-  for _ in range(target_length_of_otp):
-    otp += choice(main_use_string)
-
   # shuffle your otp once
-  # remember to convert to list type before shuffling and back to str type after shuffling
-  otp_list = list(otp)
+  # add remaining characters as per reduced target length
+  # remember to convert to list type before shuffling
+  # and back to str type after shuffling
+  otp_list = list(otp) + choices(main_use_string, k=target_length_of_otp)
   shuffle(otp_list)
   otp = ''.join(otp_list)
 
