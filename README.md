@@ -44,7 +44,7 @@ The usage is pretty self-explanatory. It is divided into the following sections
 ### To do
 
 -   [ ] Creating a proper pip distribution
--   [ ] Rectify invalid escape sequence warning :warning:
+-   [x] Rectify invalid escape sequence warning :warning:
 -   [ ] Add more desirable features
 
 ### License
