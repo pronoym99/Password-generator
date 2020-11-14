@@ -10,6 +10,10 @@ from pyperclip import copy
 
 # functions from random for password generation
 from random import (choice, choices, shuffle)
+
+# predefined ascii string constants
+from string import (ascii_uppercase, ascii_lowercase, digits, punctuation)
+
 # decorative ascii text
 from pyfiglet import figlet_format
 # your CLI app essentials
@@ -131,8 +135,9 @@ def main():
   displayInfo("Welcome to Password generator CLI", "green")
 
   # a dictionary to store all ascii characters as strings
-  password_map = {'Numbers': '0123456789', 'Lowercase Alphabets': 'abcdefghijklmnopqrstuvwxyz',
-                  'Uppercase Alphabets': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'Special characters': '{!@#$%^&*()-_=+<>?/|\[]~}'}
+  password_map = {'Numbers': digits, 'Lowercase Alphabets': ascii_lowercase,
+                  'Uppercase Alphabets': ascii_uppercase,
+                  'Special characters': punctuation}
 
   main_use_string = ''  # megastring
 
