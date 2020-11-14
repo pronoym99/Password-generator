@@ -169,7 +169,7 @@ def main():
   print('Your one time password is-')
   displayInfo(otp, "red")
 
-  if askCopyInformation()['copy'] == True:
+  if askCopyInformation()['copy']:
     copy(otp)
     print("Password copied to clipboard")
 
