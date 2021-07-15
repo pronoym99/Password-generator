@@ -1,5 +1,7 @@
 ![Password generator welcome text](https://github.com/pronoym99/Password-generator/blob/master/header%20symbol.PNG)
 
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+
 # Password Generator
 
 Your sleek CLI Password generator built using [PyInquirer](https://github.com/CITGuru/PyInquirer)
