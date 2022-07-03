@@ -1,5 +1,7 @@
 ![Password generator welcome text](https://github.com/pronoym99/Password-generator/blob/master/header%20symbol.PNG)
 
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+
 # Password Generator
 
 Your sleek CLI Password generator built using [PyInquirer](https://github.com/CITGuru/PyInquirer)
@@ -42,8 +44,10 @@ The usage is pretty self-explanatory. It is divided into the following sections
 ![Copy demo](https://github.com/pronoym99/Password-generator/blob/master/Copying%20password.gif)
 
 ### To do
-
--   [ ] Creating a proper pip distribution
+    
+-   [ ] Migrate from ```random``` to the more secure ```secrets``` module
+-   [ ] Avoid display of passwords in text or encrypted format
+-   [ ] Create a proper pip distribution
 -   [x] Rectify invalid escape sequence warning :warning:
 -   [ ] Add more desirable features
 
