@@ -1,6 +1,6 @@
 # otp generator
 
-# function for secure source of randomness
+# module for secure source of randomness
 from secrets import choice
 
 # your CLI app essential
