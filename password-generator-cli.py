@@ -1,5 +1,8 @@
 # otp generator
 
+# function for secure source of randomness
+from secrets import choice
+
 # your CLI app essential
 import click
 
@@ -8,8 +11,8 @@ from six import print_
 # for copying to clipboard
 from pyperclip import copy
 
-# functions from random for password generation
-from random import (choice, choices, shuffle)
+# functions from random for shuffling
+from random import shuffle
 
 # predefined ascii string constants
 from string import (ascii_uppercase, ascii_lowercase, digits, punctuation)
@@ -166,7 +169,8 @@ def main():
   # add remaining characters as per reduced target length
   # remember to convert to list type before shuffling
   # and back to str type after shuffling
-  otp_list = list(otp) + choices(main_use_string, k=target_length_of_otp)
+  otp_list = list(otp + ''.join(choice(main_use_string)
+                  for _ in range(target_length_of_otp)))
   shuffle(otp_list)
   otp = ''.join(otp_list)
 
