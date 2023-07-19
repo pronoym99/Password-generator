@@ -2,11 +2,11 @@ name: Ruff
 on: [ push, pull_request ]
 jobs:
   ruff:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: chartboost/ruff-action@v1
         id: ruff
         with:
-          src: ../
+          src: ../..
           args: --fix --ignore=E203,E231,E266,E402,E501,E703,F821,W291,W293
       
