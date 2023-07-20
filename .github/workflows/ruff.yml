@@ -6,4 +6,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: chartboost/ruff-action@v1
+        with:
+          src: password-generator-cli.py
+          args: --fix
+        
+
+        
       
