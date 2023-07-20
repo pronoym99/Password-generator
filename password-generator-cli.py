@@ -50,7 +50,7 @@ style = style_from_dict({
 
 
 # an utility function for displaying information in colour
-def displayInfo(info, color, font="slant", figlet=False):
+def displayInfo(info, color, font="slant", figlet = False):
   if colored:
     if not figlet:
       print_(colored(info, color))
