@@ -6,7 +6,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: chartboost/ruff-action@v1
-        id: ruff
-        with:
-          args: --fix --ignore=E203,E231,E266,E402,E501,E703,F821,W291,W293
       
