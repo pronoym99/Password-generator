@@ -67,7 +67,8 @@ def displayInfo(info, color, font="slant", figlet=False):
 
 
 class PasswordLengthValidator(Validator):
-    def validate(self, answer):
+    @staticmethod
+    def validate(answer):
         try:
             user_choice_password_length = int(answer.text)
 
