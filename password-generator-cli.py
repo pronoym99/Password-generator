@@ -46,7 +46,6 @@ style = style_from_dict(
     {
         Token.Separator: "#6C6C6C",
         Token.QuestionMark: "#FF9D00 bold",
-        Token.Selected: "",  # default
         Token.Selected: "#5F819D",
         Token.Pointer: "#FF9D00 bold",
         Token.Instruction: "",  # default
@@ -68,7 +67,8 @@ def displayInfo(info, color, font="slant", figlet=False):
 
 
 class PasswordLengthValidator(Validator):
-    def validate(self, answer):
+    @staticmethod
+    def validate(answer):
         try:
             user_choice_password_length = int(answer.text)
 
