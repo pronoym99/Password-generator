@@ -131,9 +131,7 @@ def askCopyInformation():
 
 @click.command()
 def main():
-  """
-  Simple CLI for generating passwords
-  """
+  """Simple CLI for generating passwords"""
   displayInfo("Password Generator", color="yellow", figlet=True)
   displayInfo("Welcome to Password generator CLI", "green")
 
