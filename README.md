@@ -1,6 +1,6 @@
 ![Password generator welcome text](https://github.com/pronoym99/Password-generator/blob/master/header%20symbol.PNG)
 
-[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+[![forthebadge made-with-python](https://forthebadge.shorty.systems/images/badges/made-with-python.svg)](https://www.python.org/)
 
 # Password Generator
 
