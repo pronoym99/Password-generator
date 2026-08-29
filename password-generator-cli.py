@@ -42,17 +42,15 @@ except ImportError:
     colored = None
 
 # a custom style for this CLI
-style = style_from_dict(
-    {
-        Token.Separator: "#6C6C6C",
-        Token.QuestionMark: "#FF9D00 bold",
-        Token.Selected: "#5F819D",
-        Token.Pointer: "#FF9D00 bold",
-        Token.Instruction: "",  # default
-        Token.Answer: "#5F819D bold",
-        Token.Question: "",
-    }
-)
+style = style_from_dict({
+    Token.Separator: "#6C6C6C",
+    Token.QuestionMark: "#FF9D00 bold",
+    Token.Selected: "#5F819D",
+    Token.Pointer: "#FF9D00 bold",
+    Token.Instruction: "",  # default
+    Token.Answer: "#5F819D bold",
+    Token.Question: "",
+})
 
 
 # an utility function for displaying information in colour
@@ -67,6 +65,7 @@ def displayInfo(info, color, font="slant", figlet=False):
 
 
 class PasswordLengthValidator(Validator):
+
     @staticmethod
     def validate(answer):
         try:
@@ -94,16 +93,28 @@ def askPasswordInformation():
             "validate": PasswordLengthValidator,
         },
         {
-            "type": "checkbox",
-            "qmark": "\U0001F600",
-            "message": "Select options ",
-            "name": "password options",
+            "type":
+            "checkbox",
+            "qmark":
+            "\U0001F600",
+            "message":
+            "Select options ",
+            "name":
+            "password options",
             "choices": [
                 Separator("=== Menu ==="),
-                {"name": "Numbers"},
-                {"name": "Lowercase Alphabets"},
-                {"name": "Uppercase Alphabets"},
-                {"name": "Special characters"},
+                {
+                    "name": "Numbers"
+                },
+                {
+                    "name": "Lowercase Alphabets"
+                },
+                {
+                    "name": "Uppercase Alphabets"
+                },
+                {
+                    "name": "Special characters"
+                },
             ]
             # checkbox doesn't have a Validator implementation yet
         },
@@ -114,14 +125,12 @@ def askPasswordInformation():
 
 
 def askCopyInformation():
-    questions = [
-        {
-            "type": "confirm",
-            "name": "copy",
-            "message": "Do you want to copy password to clipboard?:",
-            "default": False,
-        }
-    ]
+    questions = [{
+        "type": "confirm",
+        "name": "copy",
+        "message": "Do you want to copy password to clipboard?:",
+        "default": False,
+    }]
 
     answers = prompt(questions, style=style)
     return answers
@@ -169,10 +178,8 @@ def main():
     # add remaining characters as per reduced target length
     # remember to convert to list type before shuffling
     # and back to str type after shuffling
-    otp_list = list(
-        otp + "".join(choice(main_use_string)
-                      for _ in range(target_length_of_otp))
-    )
+    otp_list = list(otp + "".join(
+        choice(main_use_string) for _ in range(target_length_of_otp)))
     shuffle(otp_list)
     otp = "".join(otp_list)
 
